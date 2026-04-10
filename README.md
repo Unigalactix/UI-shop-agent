@@ -48,19 +48,10 @@ SearchAgent ──► MCP Server (JSON-RPC) ──► Playwright / Chromium ─�
 
 When you run `python main.py` you are greeted by a Rich-powered terminal interface:
 
-```
-╔══════════════════════════════════════════════════════════╗
-║        🛒  Walmart UI Shop Agent  ·  MCP + Playwright   ║
-╚══════════════════════════════════════════════════════════╝
+![Terminal banner](docs/screenshots/01_terminal_banner.png)
 
-Type help for available commands.   Type exit to quit.
-
-Browser ready — current page: Walmart.com | Save Money. Live Better.
-
-You: _
-```
-
-> 📸 **Screenshot:** `docs/screenshots/01_terminal_banner.png`
+The chat layout renders user messages in **blue**, agent responses in **green**, and errors in
+**red**.  A divider rule separates each turn.
 
 The chat layout renders user messages in **blue**, agent responses in **green**, and errors in
 **red**.  A divider rule separates each turn.
@@ -111,8 +102,13 @@ Agent: ✅ Logged in successfully. Home page verified.
 ```
 
 > 📸 **Screenshots:**
-> - `docs/screenshots/02_login_prompt.png` — browser showing the login modal
-> - `docs/screenshots/03_walmart_home.png` — Walmart homepage after login
+> - Login / sign-in modal:
+>
+> ![Login page](docs/screenshots/02_login_prompt.png)
+>
+> - Walmart homepage after login:
+>
+> ![Walmart home](docs/screenshots/03_walmart_home.png)
 
 ---
 
@@ -139,7 +135,9 @@ You: clear cart
 | 3 | Click first **Remove** button | `click_element` |
 | 4 | Repeat until cart count = 0 | loop |
 
-> 📸 **Screenshot:** `docs/screenshots/04_cart_empty.png` — cart showing "Your cart is empty"
+> 📸 **Screenshot:**
+>
+> ![Cart empty](docs/screenshots/04_cart_empty.png)
 
 ---
 
@@ -182,7 +180,9 @@ You: search milk
 | 4 | Wait for results to load | `wait_for_selector` |
 | 5 | Scan all result titles for "Delivery" badge | `query_all_texts` |
 
-> 📸 **Screenshot:** `docs/screenshots/05_search_results.png` — Walmart search results for "milk"
+> 📸 **Screenshot:**
+>
+> ![Search results](docs/screenshots/05_search_results.png)
 
 **Terminal output:**
 
@@ -201,7 +201,9 @@ The **SearchAgent** scans the results list for items that include a **"Delivery"
 **"Ships"** badge (indicating home-delivery availability), then clicks the first matching
 product title to open its detail page.
 
-> 📸 **Screenshot:** `docs/screenshots/06_product_detail.png` — product detail page
+> 📸 **Screenshot:**
+>
+> ![Product detail](docs/screenshots/06_product_detail.png)
 
 ---
 
@@ -216,7 +218,9 @@ product title to open its detail page.
 | 3 | Wait for the cart-count badge to update | `wait_for_selector` |
 | 4 | Confirm cart count increased | `get_element_text` |
 
-> 📸 **Screenshot:** `docs/screenshots/07_cart_with_item.png` — cart showing the added item
+> 📸 **Screenshot:**
+>
+> ![Cart with item](docs/screenshots/07_cart_with_item.png)
 
 ---
 
@@ -247,7 +251,8 @@ Agent: ✅ Reached checkout page: https://www.walmart.com/checkout/…
 ```
 
 > 📸 **Screenshots:**
-> - `docs/screenshots/08_checkout_page.png` — Walmart checkout page
+>
+> ![Checkout page](docs/screenshots/08_checkout_page.png)
 
 ---
 
@@ -281,8 +286,8 @@ Or type `workflow` in the chat UI.
 ```
 
 > 📸 **Screenshots:**
-> - `docs/screenshots/09_workflow_progress.png` — terminal showing Rich spinner
-> - `docs/screenshots/10_workflow_complete.png` — terminal showing "Workflow complete! 🎉"
+>
+> ![Workflow complete](docs/screenshots/10_workflow_complete.png)
 
 ---
 
@@ -308,9 +313,7 @@ browser.
 
 1. Run the agent with the browser visible (`BROWSER_HEADLESS=false` in `.env`).
 2. Capture screenshots with your OS tool **or** call the `screenshot` command in the chat.
-3. Place image files in [`docs/screenshots/`](docs/screenshots/) using the naming convention
-   described in [`docs/screenshots/README.md`](docs/screenshots/README.md).
-4. Update the `![alt](docs/screenshots/<file>.png)` links above to display them inline.
+3. Replace the images in [`docs/screenshots/`](docs/screenshots/) as needed.
 
 > Screenshots taken during agent runs are also auto-saved to  
 > `/tmp/shop_agent_screenshots/` for quick inspection.
