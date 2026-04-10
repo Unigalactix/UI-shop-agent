@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ui-shop-agent"
+version = "0.1.0"
+description = "UI chat-based multi-agent shopping system powered by MCP and Playwright"
+requires-python = ">=3.11"
+dependencies = [
+    "playwright>=1.44.0",
+    "openai>=1.30.0",
+    "anthropic>=0.28.0",
+    "mcp>=1.0.0",
+    "rich>=13.7.0",
+    "python-dotenv>=1.0.1",
+    "httpx>=0.27.0",
+    "pydantic>=2.7.0",
+    "aiohttp>=3.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.4.0",
+]
+
+[project.scripts]
+shop-agent = "main:run"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
